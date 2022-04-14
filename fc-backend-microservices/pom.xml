@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.banvien.fc</groupId>
+    <artifactId>fc-backend-microservices</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>common</module>
+        <module>config</module>
+        <module>auth-service</module>
+        <module>promotion-service</module>
+        <module>order-service</module>
+        <module>gateway-service</module>
+        <module>registry-service</module>
+        <module>email-service</module>
+        <module>account-service</module>
+        <module>location-service</module>
+        <module>catalog-service</module>
+        <module>file-service</module>
+        <module>sms</module>
+        <module>payment-service</module>
+        <module>delivery-service</module>
+    </modules>
+
+    <name>Friesland Campina Global (FCG) - Microservices</name>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.1.RELEASE</version>
+        <relativePath/>
+    </parent>
+    <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring-cloud.version>Hoxton.SR5</spring-cloud.version>
+        <hibernate.version>5.4.17.Final</hibernate.version>
+        <spring.jwt.version>1.0.9.RELEASE</spring.jwt.version>
+        <mapstruct.version>1.3.1.Final</mapstruct.version>
+        <apache.commons.beanutils>1.9.4</apache.commons.beanutils>
+        <json-logic.version>1.0.3</json-logic.version>
+        <maven.test.skip>true</maven.test.skip>
+        <core-dynamic-routing.version>1.0-SNAPSHOT</core-dynamic-routing.version>
+    </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>bv-releases</id>
+            <name>BanVien Releases Repository</name>
+            <url>https://maven.banvien.com.vn/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>bv-snapshots</id>
+            <name>BanVien Snapshots Repository</name>
+            <url>https://maven.banvien.com.vn/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <repositories>
+        <repository>
+            <id>maven</id>
+            <url>https://repo.maven.apache.org/maven2/</url>
+        </repository>
+        <repository>
+            <id>bv-releases</id>
+            <name>BanVien Maven Repository</name>
+            <url>https://maven.banvien.com.vn/repository/maven-releases/</url>
+        </repository>
+        <repository>
+            <id>bv-snapshots</id>
+            <name>BanVien Maven Snapshots Repository</name>
+            <url>https://maven.banvien.com.vn/repository/maven-snapshots/</url>
+        </repository>
+    </repositories>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

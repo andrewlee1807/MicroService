@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: auth-service
+  cloud:
+    config:
+      uri: http://localhost:29999
+      name: auth-service
+      profile: development
+      label: master
+    loadbalancer:
+      ribbon:
+        enabled: false
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+check-user-scopes: false

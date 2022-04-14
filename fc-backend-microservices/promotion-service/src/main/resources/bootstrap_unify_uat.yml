@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: promotion-service
+  cloud:
+    config:
+      uri: http://localhost:58888
+      name: promotion-service
+      profile: development
+      label: master
+    loadbalancer:
+      ribbon:
+        enabled: false
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl

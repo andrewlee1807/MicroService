@@ -1,0 +1,2 @@
+[23/Nov/2020:17:33:08 +0700] 192.168.8.72 "POST /promotion/apply HTTP/1.1" 401 (353 ms)
+[23/Nov/2020:17:33:29 +0700] 192.168.8.72 "POST /promotion/apply HTTP/1.1" 200 (13129 ms)

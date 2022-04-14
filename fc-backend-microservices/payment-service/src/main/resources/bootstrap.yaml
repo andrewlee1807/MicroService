@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: payment-service
+  cloud:
+    config:
+      uri: http://localhost:28888
+      name: payment-service
+      profile: development
+      label: master
+    loadbalancer:
+      ribbon:
+        enabled: false
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+#  main:
+#    web-application-type: none

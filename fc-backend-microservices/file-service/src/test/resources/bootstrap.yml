@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: file-service
+  cloud:
+    config:
+      uri: http://localhost:28888
+      name: promotion-service
+      profile: development
+      label: master
+    loadbalancer:
+      ribbon:
+        enabled: false

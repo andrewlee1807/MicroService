@@ -1,0 +1,8 @@
+[25/Nov/2020:16:53:52 +0700] 192.168.8.72 "POST /promotion/easyOrder/presuppose HTTP/1.1" 200 (1518 ms)
+[25/Nov/2020:16:54:49 +0700] 192.168.8.72 "POST /promotion/apply HTTP/1.1" 200 (599 ms)
+[25/Nov/2020:16:55:10 +0700] 192.168.8.72 "POST /promotion/apply HTTP/1.1" 200 (235 ms)
+[25/Nov/2020:16:56:01 +0700] 192.168.8.72 "POST /promotion/apply HTTP/1.1" 200 (267 ms)
+[25/Nov/2020:17:24:41 +0700] 192.168.8.72 "POST /promotion/easyOrder/presuppose HTTP/1.1" 200 (181 ms)
+[25/Nov/2020:17:24:43 +0700] 192.168.8.72 "POST /promotion/easyOrder/presuppose HTTP/1.1" 200 (159 ms)
+[25/Nov/2020:17:25:06 +0700] 192.168.8.72 "POST /promotion/apply HTTP/1.1" 200 (279 ms)
+[25/Nov/2020:17:25:15 +0700] 192.168.8.72 "POST /promotion/apply HTTP/1.1" 200 (239 ms)

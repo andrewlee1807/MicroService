@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: file-service
+  cloud:
+    config:
+      uri: http://localhost:29999
+      name: file-service
+      profile: development
+      label: master
+    loadbalancer:
+      ribbon:
+        enabled: false

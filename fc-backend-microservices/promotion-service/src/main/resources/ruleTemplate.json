@@ -1,0 +1,47 @@
+{"if": [
+  {"or": [
+    {"and": [
+      {">=": [{"countIn": [{"remove": [{"var": "products"},{{exclude}}]}, "{{promotionType}}", {{ids}}]},
+        {"if": [{"==": ["{{operation}}","or"]}, 1, {"count": [{{ids}}]}]}
+      ]},
+      {"if": [
+        {"==": ["{{operation}}","and"]},
+        {">=": [{"sumIn": [{"remove": [{"var": "products"}, {{exclude}}]}, "{{baseOn}}", "{{promotionType}}", {{ids}}]}, {{minDiscount}}]},
+        {"checkOrIn": [{"remove": [{"var": "products"}, {{exclude}}]}, "{{promotionType}}", {{minDiscount}}, "{{baseOn}}",{{ids}}]}
+      ]}
+    ]},
+    {"var": "isByPass"}
+  ]},
+  {"if": [
+    {"var": "isByPass"},
+    {"outAnd": [
+      {"if": [
+        {"var": "isByPass"},
+        {"sum": [{"remove": [{"var": "products"},{{exclude}}]}, "{{baseOn}}"]},
+        {"sumIn": [{"remove": [{"var": "products"},{{exclude}}]}, "{{baseOn}}", "{{promotionType}}", {{ids}}]}
+      ]},
+      "minValue",
+      {"selectIn": [{"remove": [{"var": "products"},{{exclude}}]}, "id", "{{promotionType}}", {{ids}}]},
+      {{discountDtos}}
+    ]},
+    {"if": [
+      {"==": ["{{operation}}" ,"and"]},
+      {"outAnd": [
+        {"if": [
+          {"var": "isByPass"},
+          {"sum": [{"remove": [{"var": "products"},{{exclude}}]}, "{{baseOn}}"]},
+          {"sumIn": [{"remove": [{"var": "products"},{{exclude}}]}, "{{baseOn}}", "{{promotionType}}", {{ids}}]}
+        ]},
+        "minValue",
+        {"selectIn": [{"remove": [{"var": "products"},{{exclude}}]}, "id", "{{promotionType}}", {{ids}}]},
+        {{discountDtos}}
+      ]},
+      {"outOr": [
+        {"remove": [{"var": "products"},{{exclude}}]},
+        "{{promotionType}}","{{baseOn}}", {{ids}},
+        {{discountDtos}}
+      ]}
+    ]}
+  ]},
+  null
+]}

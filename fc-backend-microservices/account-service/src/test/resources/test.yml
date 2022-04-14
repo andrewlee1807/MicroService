@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+#    url: jdbc:postgresql://192.168.2.12:5432/FCVSmartShopper
+#    url: jdbc:postgresql://localhost:5432/FCVSmartShopper
+    url: jdbc:postgresql://192.168.8.63:5432/FCVSmartShopper
+#    username: smartshopper
+#    password: 123456
+    username: postgres
+    password: 12345678@X
+    hikari:
+      schema: fcvsmartshopper
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl

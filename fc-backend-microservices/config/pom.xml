@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>fc-backend-microservices</artifactId>
+        <groupId>com.banvien.fc</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.banvien.fc</groupId>
+    <artifactId>config</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>Friesland Campina Global (FCG) - Microservices - Configuration</name>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-server</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.4-1206-jdbc42</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+    </dependencies>
+
+    <profiles>
+        <profile>
+            <!--mvn clean install -P prod-->
+            <id>prod-unify</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>1.8</version>
+                        <executions>
+                            <execution>
+                                <phase>process-resources</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <target>
+                                        <delete file="${project.build.outputDirectory}/application_dev.properties"/>
+                                        <delete file="${project.build.outputDirectory}/application_qa.properties"/>
+                                        <delete file="${project.build.outputDirectory}/application.properties"/>
+                                        <delete file="${project.build.outputDirectory}/application_prod.properties"/>
+                                        <copy file="src/main/resources/application_prod_unify.properties"
+                                              tofile="${project.build.outputDirectory}/application.properties"/>
+                                        <delete file="${project.build.outputDirectory}/application_prod_unify.properties"/>
+                                    </target>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <!--mvn clean install -P prod-->
+            <id>prod</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>1.8</version>
+                        <executions>
+                            <execution>
+                                <phase>process-resources</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <target>
+                                        <delete file="${project.build.outputDirectory}/application_dev.properties"/>
+                                        <delete file="${project.build.outputDirectory}/application_qa.properties"/>
+                                        <delete file="${project.build.outputDirectory}/application_unify.properties"/>
+                                        <delete file="${project.build.outputDirectory}/application.properties"/>
+                                        <copy file="src/main/resources/application_prod.properties"
+                                              tofile="${project.build.outputDirectory}/application.properties"/>
+                                        <delete file="${project.build.outputDirectory}/application_prod.properties"/>
+                                    </target>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <!--mvn clean install -P qa-->
+            <id>qa</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>1.8</version>
+                        <executions>
+                            <execution>
+                                <phase>process-resources</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <target>
+                                        <delete file="${project.build.outputDirectory}/application_dev.properties"/>
+                                        <delete file="${project.build.outputDirectory}/application.properties"/>
+                                        <delete file="${project.build.outputDirectory}/application_unify.properties"/>
+                                        <delete file="${project.build.outputDirectory}/application_prod.properties"/>
+                                        <copy file="src/main/resources/application_qa.properties"
+                                              tofile="${project.build.outputDirectory}/application.properties"/>
+                                        <delete file="${project.build.outputDirectory}/application_qa.properties"/>
+                                    </target>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <!--mvn clean install -P dev-->
+            <id>dev</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>1.8</version>
+                        <executions>
+                            <execution>
+                                <phase>process-resources</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <target>
+                                        <delete file="${project.build.outputDirectory}/application.properties"/>
+                                        <copy file="src/main/resources/application_dev.properties"
+                                              tofile="${project.build.outputDirectory}/application.properties"/>
+                                    </target>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <!--mvn clean install -P uat-->
+            <id>uat</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>1.8</version>
+                        <executions>
+                            <execution>
+                                <phase>process-resources</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <target>
+                                        <delete file="${project.build.outputDirectory}/application_dev.properties"/>
+                                        <delete file="${project.build.outputDirectory}/application.properties"/>
+                                        <delete file="${project.build.outputDirectory}/application_prod.properties"/>
+                                        <delete file="${project.build.outputDirectory}/application_unify.properties"/>
+                                        <copy file="src/main/resources/application_uat.properties"
+                                              tofile="${project.build.outputDirectory}/application.properties"/>
+                                        <delete file="${project.build.outputDirectory}/application_uat.properties"/>
+                                    </target>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <!--mvn clean install -P unify-->
+            <id>unify</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>1.8</version>
+                        <executions>
+                            <execution>
+                                <phase>process-resources</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <target>
+                                        <delete file="${project.build.outputDirectory}/application_dev.properties"/>
+                                        <delete file="${project.build.outputDirectory}/application.properties"/>
+                                        <delete file="${project.build.outputDirectory}/application_prod.properties"/>
+                                        <delete file="${project.build.outputDirectory}/application_uat.properties"/>
+                                        <delete file="${project.build.outputDirectory}/application_qa.properties"/>
+                                        <copy file="src/main/resources/application_unify.properties"
+                                              tofile="${project.build.outputDirectory}/application.properties"/>
+                                        <delete file="${project.build.outputDirectory}/application_unify.properties"/>
+                                    </target>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <!--mvn clean install -P unify_uat-->
+            <id>unify_uat</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>1.8</version>
+                        <executions>
+                            <execution>
+                                <phase>process-resources</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <target>
+                                        <delete file="${project.build.outputDirectory}/application_dev.properties"/>
+                                        <delete file="${project.build.outputDirectory}/application.properties"/>
+                                        <delete file="${project.build.outputDirectory}/application_prod.properties"/>
+                                        <delete file="${project.build.outputDirectory}/application_uat.properties"/>
+                                        <delete file="${project.build.outputDirectory}/application_qa.properties"/>
+                                        <delete file="${project.build.outputDirectory}/application_unify.properties"/>
+                                        <copy file="src/main/resources/application_unify_uat.properties"
+                                              tofile="${project.build.outputDirectory}/application.properties"/>
+                                        <delete file="${project.build.outputDirectory}/application_unify_uat.properties"/>
+                                    </target>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <finalName>fcg-config</finalName>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

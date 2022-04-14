@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+</head>
+
+<body style=" margin: 0; font-family: 'Roboto';font-size: 16px;color: #121111;">
+<header style="background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);padding: 15px 20px;
+            color: #ffffff; display: flex;">
+</header>
+<p style="text-align:center;font-size:40px;font-family:Lobster;"><b>Sales Invoice</b></p>
+<section style=" padding: 10x;">
+    <div class="section section-open" style="display:flex;">
+        <div class="seller" style="width:50%;">
+            <div class="order-info" style="padding-top: 21px">
+                <div class="order-title"
+                     style="font-weight: bold;font-size: 20px;line-height: 150%; margin-bottom: 18px;margin-left:20px;">
+                    Seller Store Name
+                </div>
+            </div>
+            <div class="info-detail" style="display: flex">
+                <div class="info-title" style="width: 25%;margin-left:30px;">
+                    <div class="title" style="padding-bottom: 10px;">
+                        Seller Address:
+                    </div>
+                    <div class="title" style="padding-bottom: 10px;">
+                        Seller Contact:
+                    </div>
+                    <div class="title" style="padding-bottom: 10px;">
+                        Fax Number:
+                    </div>
+                    <div class="title" style="padding-bottom: 10px;">
+                        Seller Email:
+                    </div>
+                    <div class="title" style="padding-bottom: 10px;">
+                        Seller Website:
+                    </div>
+                    <div class="title" style="padding-bottom: 10px;">
+                        Invoice No:
+                    </div>
+                    <div class="title" style="padding-bottom: 10px;">
+                        Invoice Date:
+                    </div>
+                    <div class="title" style="padding-bottom: 10px;">
+                        Status:
+                    </div>
+                </div>
+                <div class="info-data">
+                    <div th:text="${selleraddress}" class="data" style="padding-bottom: 10px;">
+                    </div>
+                    <div th:text="${sellercontact}" class="data" style="padding-bottom: 10px;">
+                    </div>
+                    <div th:text="${faxnumber}" class="data" style="padding-bottom: 10px;">
+                    </div>
+                    <div th:text="${selleremail}" class="data" style="padding-bottom: 10px;">
+                    </div>
+                    <div th:text="${sellerwebsite}" class="data" style="padding-bottom: 10px;">
+                    </div>
+                    <div th:text="${invoiceno}" class="data" style="padding-bottom: 10px;">
+                    </div>
+                    <div th:text="${invoicedate}" class="data" style="padding-bottom: 10px;">
+                    </div>
+                    <div th:text="${status}" class="data" style="padding-bottom: 10px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="buyer" style="width:50%;">
+            <div class="order-info" style="padding-top: 21px">
+                <div class="order-title"
+                     style="font-weight: bold;font-size: 20px;line-height: 150%; margin-bottom: 18px">
+                    Buyer Name
+                </div>
+            </div>
+            <div class="info-detail" style="display: flex">
+                <div class="info-title" style="width: 25%;margin-left:10px;">
+                    <div class="title" style="padding-bottom: 10px;">
+                        Buyer Address:
+                    </div>
+                    <div class="title" style="padding-bottom: 10px;">
+                        Buyer Contact:
+                    </div>
+                    <div class="title" style="padding-bottom: 10px;">
+                        Buyer Email:
+                    </div>
+                    <div class="title" style="padding-bottom: 10px;">
+                        Notes:
+                    </div>
+                    <div class="title" style="padding-bottom: 10px;">
+                        Order Channel:
+                    </div>
+                    <div class="title" style="padding-bottom: 10px;">
+                        Payment Method:
+                    </div>
+                    <div class="title" style="padding-bottom: 10px;">
+                        Delivery Method:
+                    </div>
+                    <div class="title" style="padding-bottom: 10px;">
+                        ETA:
+                    </div>
+                </div>
+                <div class="info-data">
+                    <div th:text="${buyeraddress}" class="data" style="padding-bottom: 10px;">
+                    </div>
+                    <div th:text="${buyercontact}" class="data" style="padding-bottom: 10px;">
+                    </div>
+                    <div th:text="${buyeremail}" class="data" style="padding-bottom: 10px;">
+                    </div>
+                    <div th:text="${notes}" class="data" style="padding-bottom: 10px;">
+                    </div>
+                    <div th:text="${orderchannel}" class="data" style="padding-bottom: 10px;">
+                    </div>
+                    <div th:text="${paymentmethod}" class="data" style="padding-bottom: 10px;">
+                    </div>
+                    <div th:text="${deliverymethod}" class="data" style="padding-bottom: 10px;">
+                    </div>
+                    <div th:text="${eta}" class="data" style="padding-bottom: 10px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="table" style="margin-top: 25px">
+        <table class="table" style="width: 100%;border-spacing:0px">
+            <thead style="color: black;">
+            <tr style="height: 50px;">
+                <th style="border: solid 1px gray;" >Code</th>
+                <th style="border: solid 1px gray;border-left:0;" >Product</th>
+                <th style="border: solid 1px gray;border-left:0;" >UOM</th>
+                <th style="border: solid 1px gray;border-left:0;" >Quantity</th>
+                <th style="border: solid 1px gray;border-left:0;" >Per Unit</th>
+                <th style="border: solid 1px gray;border-left:0;" >Gross</th>
+                <th style="border: solid 1px gray;border-left:0;" >Discount</th>
+                <th style="border: solid 1px gray;border-left:0;" >Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="product :${products}">
+                <td th:text="${product.code}"
+                    style="text-align: center;border: 1px solid #E5E5E5;"></td>
+                <td th:text="${product.name}"
+                    style="text-align: center;border: 1px solid #E5E5E5;"></td>
+                <td th:text="${product.uom}"
+                    style="text-align: center;border: 1px solid #E5E5E5;"></td>
+                <td th:text="${product.quantity}"
+                    style="text-align: center;border: 1px solid #E5E5E5;">
+                </td>
+                <td th:text="${product.perunit}"
+                    style="text-align: center;border: 1px solid #E5E5E5;">
+                </td>
+                <td th:text="${#numbers.formatInteger(product.gross,3,'POINT')}"
+                    style="text-align: center;border: 1px solid #E5E5E5;">
+                </td>
+                <td th:text="${#numbers.formatInteger(product.discount,3,'POINT')}"
+                    style="text-align: center;border: 1px solid #E5E5E5;">
+                </td>
+                <td th:text="${#numbers.formatInteger(product.total,3,'POINT')}"
+                    style="text-align: center;border: 1px solid #E5E5E5;">
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="3"></td>
+                <td style="text-align: center;">Total:</td>
+                <td style="text-align: center;" th:text="${#numbers.formatInteger(totalgross,3,'POINT')}"></td>
+                <td style="text-align: center;" th:text="${#numbers.formatInteger(totaldiscount,3,'POINT')}"></td>
+                <td style="text-align: center;" th:text="${#numbers.formatInteger(totalprice,3,'POINT')}"></td>
+            </tr>
+            </tbody>
+        </table>
+        <div style="font-size:18px;font-family: fantasy;">Total:<span th:text="${totalitem}"></span> Item </div>
+    </div>
+    <hr></hr>
+    <div class="provisional" style="font-size: 18px; margin-top: 20px;">
+        <div class="provisional-detail" style="display: flex; text-align: left">
+            <div class="provisional-title" style="width: 90%">
+                <div class="title" style="padding-bottom: 10px;">
+                    Total before tax
+                </div>
+                <div class="title" style="padding-bottom: 10px;">
+                    Additional Discount
+                </div>
+                <div class="title" style="padding-bottom: 10px;">
+                    Total after Discount
+                </div>
+                <div class="title" style="padding-bottom: 10px;">
+                    Tax
+                </div>
+                <div class="title"
+                     style="padding-top: 12px; margin-top: 15px; background: #E5E5E5; padding-bottom: 10px;">
+                    <b>Grand Total ( After Discount & Tax) </b>
+                </div>
+            </div>
+            <div class="provisional-data" style="width: 30%;margin-left:15px;">
+                <div th:text="${#numbers.formatInteger(totalbftax,3,'POINT')}" class="data" style="padding-bottom: 10px;
+            padding-right: 20px;">
+                </div>
+                <div th:text="${#numbers.formatInteger(adddiscount,0,'POINT')}" class="data" style="padding-bottom: 10px;
+            padding-right: 20px;">
+                </div>
+                <div th:text="${#numbers.formatInteger(totalafdis,3,'POINT')}" class="data"
+                     style="padding-bottom: 10px;padding-right: 20px;">
+                </div>
+                <div th:text="${#numbers.formatInteger(tax,3,'POINT')}" class="data" style="padding-bottom: 10px;
+            padding-right: 20px;">
+                </div>
+                <div th:text="${#numbers.formatInteger(grandtotal,3,'POINT')}" class="data" style="padding-bottom: 10px;
+            padding-right: 20px;padding-top: 12px; margin-top: 15px;">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer style="padding: 25px 30px;background: #292F37; color: #F2F2F2;opacity: 0.8; display: flex">
+</footer>
+</body>
+</html>

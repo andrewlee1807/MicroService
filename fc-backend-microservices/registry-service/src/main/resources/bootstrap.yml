@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      uri: http://localhost:28888
+      profile: development
+      label: master
+      name: registry-service

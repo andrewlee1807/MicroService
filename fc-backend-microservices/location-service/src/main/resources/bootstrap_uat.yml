@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: location-service
+  cloud:
+    config:
+      uri: http://localhost:48888
+      name: location-service
+      profile: development
+      label: master

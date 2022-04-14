@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: account-service
+  cloud:
+    config:
+      uri: http://localhost:28888
+      name: account-service
+      profile: development
+      label: master
+    loadbalancer:
+      ribbon:
+        enabled: false
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
